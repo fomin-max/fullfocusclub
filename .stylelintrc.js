@@ -10,6 +10,7 @@ module.exports = {
   rules: {
     'at-rule-no-unknown': null,
     'scss/at-rule-no-unknown': true,
+    'function-calc-no-invalid': null,
     'max-nesting-depth': [2, { ignore: ['pseudo-classes'] }],
   },
 };

@@ -1,0 +1,120 @@
+@import 'assets/styles/_adaptive';
+@import 'assets/styles/_mixins';
+
+.root {
+  position: relative;
+  z-index: var(--z-header);
+  display: none;
+  @include mediaMaxLg {
+    display: flex;
+  }
+  cursor: pointer;
+}
+
+.transform {
+  @include transform;
+}
+
+.transition {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform, filter, backdrop-filter;
+}
+
+.transitionAll {
+  @include transitionAll;
+}
+
+.w10 {
+  width: 2.5rem;
+}
+
+.h10 {
+  height: 2.5rem;
+}
+
+.right0 {
+  right: 0;
+}
+
+.top0 {
+  top: 0;
+}
+
+.rotate45up {
+  --tw-rotate: 45deg;
+}
+
+
+.rotate45 {
+  --tw-rotate: -45deg;
+}
+
+.translate-y-50 {
+  --tw-translate-y: -50%;
+}
+
+.translate-x-50 {
+  --tw-translate-x: -50%;
+}
+
+.w5 {
+  width: 1.25rem;
+}
+
+.left-50 {
+  left: 50%;
+}
+
+.top-50 {
+  top: 50%;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.translate-y-375 {
+  --tw-translate-y: -0.375rem;
+}
+
+.translate-y-375-up {
+  --tw-translate-y: 0.375rem;
+}
+
+.w0 {
+  width: 0;
+}
+
+.h0\.5 {
+  height: 0.125rem;
+}
+
+.duration200 {
+  transition-duration: 200ms;
+}
+
+.delay200 {
+  transition-delay: 200ms;
+}
+
+.opacity100 {
+  opacity: 1;
+}
+
+.opacity50 {
+  opacity: 0.5;
+}
+
+.bgWhite {
+  background-color: var(--color-white);
+}

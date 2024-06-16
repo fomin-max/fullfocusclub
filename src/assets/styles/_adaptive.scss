@@ -1,0 +1,75 @@
+$smBreak: 575px;
+$mdBreak: 767px;
+$lgBreak: 979px;
+$xlBreak: 1199px;
+$xxlBreak: 1365px;
+
+@mixin mediaMaxSm {
+  @media (max-width: $smBreak) {
+    @content;
+  }
+}
+
+@mixin mediaMaxMd {
+  @media (max-width: $mdBreak) {
+    @content;
+  }
+}
+
+@mixin mediaMaxLg {
+  @media (max-width: $lgBreak) {
+    @content;
+  }
+}
+
+@mixin mediaMaxXl {
+  @media (max-width: $xlBreak) {
+    @content;
+  }
+}
+
+@mixin mediaMaxXxl {
+  @media (max-width: $xxlBreak) {
+    @content;
+  }
+}
+
+@mixin mediaMinSm {
+  @media (min-width: $smBreak + 1px) {
+    @content;
+  }
+}
+
+@mixin mediaMinMd {
+  @media (min-width: $mdBreak + 1px) {
+    @content;
+  }
+}
+
+@mixin mediaMinLg {
+  @media (min-width: $lgBreak + 1px) {
+    @content;
+  }
+}
+
+@mixin mediaMinXl {
+  @media (min-width: $xlBreak + 1px) {
+    @content;
+  }
+}
+
+@mixin mediaMinXxl {
+  @media (min-width: $xxlBreak + 1px) {
+    @content;
+  }
+}
+
+@mixin hideScroll {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+
+  /* Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

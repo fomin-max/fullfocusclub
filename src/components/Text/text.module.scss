@@ -1,0 +1,140 @@
+@import 'assets/styles/_adaptive';
+
+.root {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--color-white);
+  line-height: 20px;
+
+  // START FORMATS
+  &.format-inherit {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  &.format-xs {
+    font-size: 12px;
+  }
+
+  &.format-s {
+    font-size: 16px;
+  }
+
+  &.format-m {
+    font-size: 22px;
+
+    @include mediaMaxSm {
+      font-size: 18px;
+    }
+  }
+
+  &.format-l {
+    font-size: 30px;
+
+    @include mediaMaxSm {
+      font-size: 24px;
+    }
+  }
+
+  &.format-xl {
+    font-size: 40px;
+
+    @include mediaMaxSm {
+      font-size: 30px;
+    }
+  }
+  // END FORMATS
+
+  // START WEIGHTS
+  &.weight-normal {
+    font-weight: 400;
+  }
+
+  &.weight-medium {
+    font-weight: 500;
+  }
+
+  &.weight-bold {
+    font-weight: 700;
+  }
+  // END WEIGHTS
+
+  // START ALIGN
+  &.align-left {
+    text-align: left;
+  }
+
+  &.align-center {
+    text-align: center;
+  }
+
+  &.align-right {
+    text-align: right;
+  }
+
+  &.align-inherit {
+    text-align: inherit;
+  }
+  // END ALIGN
+
+  // START COLORS
+  &.colorType-link {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: color 0.4s ease;
+
+    &:hover {
+      color: var(--color-primary);
+      cursor: pointer;
+    }
+  }
+
+  &.colorType-primary {
+    color: var(--color-primary);
+  }
+
+  &.colorType-success {
+    color: var(--color-success);
+  }
+
+  &.colorType-danger {
+    color: var(--color-danger);
+  }
+
+  &.colorType-inherit {
+    color: inherit;
+  }
+
+  &.colorType-gray {
+    color: var(--color-grey);
+  }
+  // END COLORS
+
+  // START DECORATION
+  &.decoration-none {
+    text-decoration: none;
+  }
+
+  &.decoration-underline {
+    text-decoration: underline;
+  }
+
+  &.decoration-line_through {
+    text-decoration: line-through;
+  }
+  // END DECORATION
+
+  // START OTHER PROPS
+  &.uppercase {
+    text-transform: uppercase;
+  }
+
+  &.inline {
+    display: inline;
+  }
+
+  &.clickable {
+    cursor: pointer;
+  }
+  // END OTHER PROPS
+}
