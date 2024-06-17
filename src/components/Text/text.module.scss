@@ -39,8 +39,24 @@
   &.format-xl {
     font-size: 40px;
 
+    @include mediaMaxXxl {
+      font-size: 36px;
+    }
+
+    @include mediaMaxXl {
+      font-size: 32px;
+    }
+
+    @include mediaMaxLg {
+      font-size: 28px;
+    }
+
+    @include mediaMaxMd {
+      font-size: 22px;
+    }
+
     @include mediaMaxSm {
-      font-size: 30px;
+      font-size: 16px;
     }
   }
   // END FORMATS

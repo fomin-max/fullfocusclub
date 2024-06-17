@@ -3,7 +3,7 @@
 body {
   margin: 0;
   color: var(--color-white);
-  font-family: 'magistral', 'Arial', sans-serif;
+  font-family: var(--font-family-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0.05em;

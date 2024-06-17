@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link, scroller } from 'react-scroll';
 
 import { Button, Text } from 'components';
-import { useWindowSize } from 'utils';
+import { BRAND_URL, useWindowSize } from 'utils';
 import { $smBreak } from 'assets/styles/adaptive';
 import { ReactComponent as FullLogo } from 'assets/img/full-logo.svg';
 import { ReactComponent as ShortLogo } from 'assets/img/short-logo.svg';
@@ -20,7 +20,7 @@ export const Navbar = () => {
     scroller.scrollTo(LINK_ID.franchise, {});
   };
 
-  const isSmallWidth = width > $smBreak;
+  const isSmallWidth = width < $smBreak;
 
   const toggleNavbarState = () => setIsNavbarOpen((prevState) => !prevState);
 
@@ -28,11 +28,11 @@ export const Navbar = () => {
     <>
       <header className={css.header}>
         <div className={css.container}>
-          <a href={window.location.origin}>
+          <a href={BRAND_URL}>
             {isSmallWidth ? (
-              <FullLogo className={css.logo} />
-            ) : (
               <ShortLogo className={css.logo} />
+            ) : (
+              <FullLogo className={css.logo} />
             )}
           </a>
           <ul className={css.menu}>

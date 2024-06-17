@@ -13,11 +13,18 @@
   --color-success: #3bb54a;
   --color-secondary: var(--color-indigo);
 
+  // FONTS
+  // (только латиница, пишем им наше название, главные заголовки)
+  --font-family-latin: "Audiowide", sans-serif;
+  // (кириллица, пишем им заголовки, подзаголовки)
+  --font-family-cyrillic: "MagistralC", sans-serif;
+  // Шрифт для длинных текстов
+  --font-family-base: "Montserrat", sans-serif;
+
   // WIDTH AND HEIGHT
   --scrollbar-width: 12px;
   --scrollbar-color: #242427;
   --header-height: 100px;
-  --body-min-width: 360px;
 
   // ANIMATIONS
   --shine-degree: 120deg;
