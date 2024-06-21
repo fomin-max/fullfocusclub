@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import 'normalize.css';
+import './index.scss';
 
 import { App } from './App';
-import './index.scss';
 
 const appElement = (
   <BrowserRouter>

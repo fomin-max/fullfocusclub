@@ -17,6 +17,7 @@ export const Navbar = () => {
   const { width } = useWindowSize();
 
   const handleGoToFranchise = () => {
+    window.open('tel:+79650322838');
     scroller.scrollTo(LINK_ID.franchise, {});
   };
 

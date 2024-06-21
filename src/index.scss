@@ -42,3 +42,19 @@ ul {
   border: 3px solid transparent;
   border-radius: 10px;
 }
+
+@font-face {
+  font-family: 'Audiowide';
+  src: local('Audiowide'),
+    url('./fonts/Audiowide-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MagistralC';
+  src: local('MagistralC'), url('fonts/MagistralC.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat'), url('fonts/Montserrat.ttf') format('truetype');
+}
