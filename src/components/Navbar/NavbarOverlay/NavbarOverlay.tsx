@@ -14,7 +14,9 @@ interface IProps {
 
 export const NavbarOverlay = ({ isOpened, onClick }: IProps) => {
   const handleFranchise = () => {
-    window.open('tel:+79650322838');
+    alert(
+      'Связаться с нами можно по следующим видам связи:\nemail: info@fullfocusclub.ru\nтелефон: +79139887303\nтелеграмм: @fullfocusclub'
+    );
     onClick();
   };
 
