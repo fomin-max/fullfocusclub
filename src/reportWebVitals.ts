@@ -1,15 +1,16 @@
-// import { ReportHandler } from 'web-vitals';
-//
-// const reportWebVitals = (onPerfEntry?: ReportHandler) => {
-//   if (onPerfEntry && onPerfEntry instanceof Function) {
-//     import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-//       getCLS(onPerfEntry);
-//       getFID(onPerfEntry);
-//       getFCP(onPerfEntry);
-//       getLCP(onPerfEntry);
-//       getTTFB(onPerfEntry);
-//     });
-//   }
-// };
-//
-// export default reportWebVitals;
+import { ReportCallback } from 'web-vitals';
+
+export const reportWebVitals = (onPerfEntry: ReportCallback) => {
+  if (onPerfEntry) {
+    import('web-vitals/attribution').then(
+      ({ onCLS, onINP, onFCP, onFID, onLCP, onTTFB }) => {
+        onCLS(onPerfEntry);
+        onINP(onPerfEntry);
+        onFCP(onPerfEntry);
+        onFID(onPerfEntry);
+        onLCP(onPerfEntry);
+        onTTFB(onPerfEntry);
+      }
+    );
+  }
+};

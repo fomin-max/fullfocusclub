@@ -16,9 +16,11 @@ interface IProps extends React.AllHTMLAttributes<HTMLProps> {
   weight?: 'normal' | 'medium' | 'bold';
   decoration?: 'none' | 'underline' | 'line_through';
 
-  format?: 'inherit' | 'xs' | 's' | 'm' | 'l' | 'xl';
+  format?: 'inherit' | 'custom' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
   colorType?: TTextColorTypes;
+
+  family?: 'cyrillic' | 'latin' | 'base';
 }
 
 /**
@@ -38,6 +40,7 @@ export const Text = ({
   align = 'left',
   weight = 'normal',
   decoration,
+  family,
   format = 's',
   colorType,
   children,
@@ -54,6 +57,7 @@ export const Text = ({
     inline && css.inline,
     clickable && css.clickable,
     colorType && css[`colorType-${colorType}`],
+    family && css[`family-${family}`],
     className
   );
 

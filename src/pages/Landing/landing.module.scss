@@ -7,7 +7,18 @@
 .top {
   position: relative;
   width: 100%;
+  height: 90vh;
   overflow: hidden;
+
+
+  @include mediaMaxMd {
+    height: auto;
+    min-height: 450px;
+  }
+
+  .topInner {
+    position: fixed;
+  }
 
   .media {
     position: fixed;
@@ -34,23 +45,15 @@
     padding: 13em 10em;
 
     @include mediaMaxXxl {
-      padding: 13em 8em;
-    }
-
-    @include mediaMaxXl {
-      padding: 13em 7em;
+      padding: 10em 6em;
     }
 
     @include mediaMaxLg {
-      padding: 13em 5em;
+      padding: 10em 4em;
     }
 
     @include mediaMaxMd {
-      padding: 13em 5em;
-    }
-
-    @include mediaMaxSm {
-      padding: 13em 3em;
+      padding: 10em 3em;
     }
 
     .title {
@@ -62,21 +65,21 @@
       text-indent: -1em;
 
       @include mediaMaxXxl {
-        font-size: 150px;
+        font-size: 140px;
       }
 
       @include mediaMaxXl {
-        font-size: 130px;
+        font-size: 120px;
       }
 
       @include mediaMaxLg {
-        font-size: 110px;
+        margin-left: 0;
+        font-size: 100px;
+        text-indent: 0;
       }
 
       @include mediaMaxMd {
-        margin-left: 0;
-        font-size: 80px;
-        text-indent: 0;
+        font-size: 65px;
       }
 
       @include mediaMaxSm {
@@ -89,13 +92,102 @@
       margin-left: 1.05em;
       font-family: var(--font-family-cyrillic);
 
-      @include mediaMaxLg {
+      @include mediaMaxXl {
         min-width: 400px;
       }
 
-      @include mediaMaxMd {
+      @include mediaMaxLg {
         margin-left: 5px;
       }
+    }
+  }
+}
+
+.pageSeparatorOuter {
+  position: relative;
+  bottom: -25px;
+}
+
+.about {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: -25px;
+  padding: 0 40px;
+  background-color: var(--color-dark-bg);
+
+  @media (max-width: 840px) {
+    padding-top: 50px;
+  }
+
+  .aboutTitle {
+    margin-left: -0.08em;
+    font-size: 110px;
+    line-height: 100px;
+
+    @include mediaMaxXxl {
+      font-size: 90px;
+      line-height: 80px;
+    }
+
+    @include mediaMaxXl {
+      font-size: 80px;
+      line-height: 70px;
+    }
+
+    @include mediaMaxLg {
+      font-size: 70px;
+      line-height: 60px;
+    }
+
+    @include mediaMaxMd {
+      font-size: 50px;
+      line-height: 40px;
+    }
+
+    @include mediaMaxSm {
+      font-size: 40px;
+      line-height: 30px;
+    }
+  }
+
+  .aboutContainer {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 100px 0;
+  }
+
+  .aboutContainerInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 840px) {
+      flex-direction: column;
+      align-items: normal;
+      margin-top: -70px;
+
+      .leftSide {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 35px;
+      }
+    }
+  }
+
+  .leftSide {
+    max-width: 55%;
+    margin-right: 50px;
+    font-size: 23px;
+    line-height: 30px;
+  }
+
+  .rightSide {
+    max-width: 415px;
+    img {
+      max-width: 100%;
+      max-height: 100%;
     }
   }
 }
