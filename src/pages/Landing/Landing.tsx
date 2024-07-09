@@ -1,4 +1,4 @@
-import sample from 'assets/video/own.mp4';
+import sample from 'assets/video/foreign.mp4';
 import mobileSample from 'assets/video/vertical.mp4';
 import { ReactComponent as PageSeparator } from 'assets/img/page-separator.svg';
 import { $mdBreak } from 'assets/styles/adaptive';
