@@ -24,6 +24,7 @@ export const Landing = () => {
               <video
                 loop
                 muted
+                autoplay
                 playsinline
                 src="${isMobile ? mobileSample : sample}"
                 class="${css.bgVideo}"
