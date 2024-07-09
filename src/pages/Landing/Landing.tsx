@@ -62,7 +62,7 @@ export const Landing = () => {
           >
             Full focus
           </Text>{' '}
-          — пространство, созданное для полной концентрации
+          —&nbsp;пространство, созданное для полной концентрации
         </Text>
         <div className={css.aboutContainer}>
           <div className={css.aboutContainerInner}>
