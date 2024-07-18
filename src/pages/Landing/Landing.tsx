@@ -40,7 +40,7 @@ export const Landing = () => {
               Focus
               <div className={css.subtitle}>
                 <Text format="xl" weight="medium" upper>
-                  Сеть киберспортивных центров
+                  Сеть киберспортивных клубов
                 </Text>
               </div>
             </div>

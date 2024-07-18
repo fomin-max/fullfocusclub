@@ -1,6 +1,6 @@
 export const LINK_ID = {
   about: 'about',
-  esportsCenters: 'esports-centers',
+  esportsClubs: 'esports-clubs',
   faq: 'faq',
   contacts: 'contacts',
   franchise: 'franchise',
@@ -12,8 +12,8 @@ export const LINKS = [
     name: 'О нас',
   },
   {
-    id: LINK_ID.esportsCenters,
-    name: 'Центры',
+    id: LINK_ID.esportsClubs,
+    name: 'Клубы',
   },
   {
     id: LINK_ID.faq,

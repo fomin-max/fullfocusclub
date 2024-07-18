@@ -18,7 +18,7 @@ export const Navbar = () => {
 
   const handleGoToFranchise = () => {
     alert(
-      'Связаться с нами можно по следующим видам связи:\nemail: info@fullfocusclub.ru\nтелефон: +79139887303\nтелеграмм: @fullfocusclub'
+      'Связаться с нами можно по следующим видам связи:\nemail: info@fullfocusclub.ru\nтелефон: +7 (812) 660-52-69\nтелеграмм: @fullfocusclub'
     );
     scroller.scrollTo(LINK_ID.franchise, {});
   };
