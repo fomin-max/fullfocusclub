@@ -90,7 +90,11 @@ export const Navbar = () => {
           <Hamburger onClick={toggleNavbarState} isOpened={isNavbarOpen} />
         </div>
       </header>
-      <NavbarOverlay onClick={toggleNavbarState} isOpened={isNavbarOpen} />
+      <NavbarOverlay
+        onClick={toggleNavbarState}
+        isOpened={isNavbarOpen}
+        isMediumWidth={isMediumWidth}
+      />
     </>
   );
 };

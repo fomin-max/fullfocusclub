@@ -11,9 +11,10 @@ import css from './navbar-overlay.module.scss';
 interface IProps {
   onClick: VoidFunction;
   isOpened: boolean;
+  isMediumWidth: boolean;
 }
 
-export const NavbarOverlay = ({ isOpened, onClick }: IProps) => {
+export const NavbarOverlay = ({ isOpened, onClick, isMediumWidth }: IProps) => {
   const handleFranchise = () => {
     alert(
       'Связаться с нами можно по следующим видам связи:\nemail: info@fullfocusclub.ru\nтелефон: +7 (812) 660-52-69\nтелеграмм: @fullfocusclub'
@@ -30,7 +31,7 @@ export const NavbarOverlay = ({ isOpened, onClick }: IProps) => {
             <li key={id}>
               <Link
                 activeClass={css.active}
-                offset={-HEADER_HEIGHT + 50} // 50 - padding
+                offset={isMediumWidth ? -HEADER_HEIGHT + 50 : -HEADER_HEIGHT} // 50 - padding
                 smooth
                 spy
                 to={id}
