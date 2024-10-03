@@ -8,6 +8,12 @@
   width: 100%;
   height: var(--header-height);
   min-height: var(--header-height);
+  transition: backdrop-filter 0.4s ease 0.4s;
+}
+
+.headerWithBg {
+  backdrop-filter: blur(12px) brightness(0.5);
+  transition-delay: 0.1s;
 }
 
 .container {

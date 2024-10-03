@@ -2,10 +2,11 @@ import * as React from 'react';
 import { Link, scroller } from 'react-scroll';
 
 import { Button, Text } from 'components';
-import { BRAND_URL, useWindowSize } from 'utils';
-import { $smBreak } from 'assets/styles/adaptive';
+import { BRAND_URL, useWindowScroll, useWindowSize } from 'utils';
+import { $mdBreak, $smBreak } from 'assets/styles/adaptive';
 import { ReactComponent as FullLogo } from 'assets/img/full-logo.svg';
 import { ReactComponent as ShortLogo } from 'assets/img/short-logo.svg';
+import cn from 'classnames';
 import { Hamburger } from './Hamburger';
 import { NavbarOverlay } from './NavbarOverlay';
 import { LINK_ID, LINKS } from './consts';
@@ -15,6 +16,15 @@ import css from './navbar.module.scss';
 export const Navbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = React.useState(false);
   const { width } = useWindowSize();
+  const { scrollY } = useWindowScroll();
+  const headerHeight = 100;
+  const mobileLandingHeight = 500;
+  const isSmallWidth = width < $smBreak;
+  const isMediumWidth = width < $mdBreak;
+
+  const isScrolledToBottom =
+    scrollY >
+    (isMediumWidth ? mobileLandingHeight : window.innerHeight) - headerHeight;
 
   const handleGoToFranchise = () => {
     alert(
@@ -23,13 +33,16 @@ export const Navbar = () => {
     scroller.scrollTo(LINK_ID.franchise, {});
   };
 
-  const isSmallWidth = width < $smBreak;
-
   const toggleNavbarState = () => setIsNavbarOpen((prevState) => !prevState);
 
   return (
     <>
-      <header className={css.header}>
+      <header
+        className={cn(
+          css.header,
+          isScrolledToBottom && !isNavbarOpen && css.headerWithBg
+        )}
+      >
         <div className={css.container}>
           <a href={BRAND_URL}>
             {isSmallWidth ? (
