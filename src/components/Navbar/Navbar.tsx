@@ -2,7 +2,12 @@ import * as React from 'react';
 import { Link, scroller } from 'react-scroll';
 
 import { Button, Text } from 'components';
-import { BRAND_URL, useWindowScroll, useWindowSize } from 'utils';
+import {
+  BRAND_URL,
+  HEADER_HEIGHT,
+  useWindowScroll,
+  useWindowSize,
+} from 'utils';
 import { $mdBreak, $smBreak } from 'assets/styles/adaptive';
 import { ReactComponent as FullLogo } from 'assets/img/full-logo.svg';
 import { ReactComponent as ShortLogo } from 'assets/img/short-logo.svg';
@@ -17,14 +22,14 @@ export const Navbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = React.useState(false);
   const { width } = useWindowSize();
   const { scrollY } = useWindowScroll();
-  const headerHeight = 100;
   const mobileLandingHeight = 500;
   const isSmallWidth = width < $smBreak;
   const isMediumWidth = width < $mdBreak;
+  const duration = 400;
 
   const isScrolledToBottom =
     scrollY >
-    (isMediumWidth ? mobileLandingHeight : window.innerHeight) - headerHeight;
+    (isMediumWidth ? mobileLandingHeight : window.innerHeight) - HEADER_HEIGHT;
 
   const handleGoToFranchise = () => {
     alert(
@@ -66,7 +71,14 @@ export const Navbar = () => {
               }
               return (
                 <li key={id}>
-                  <Link activeClass={css.active} smooth spy to={id}>
+                  <Link
+                    activeClass={css.active}
+                    offset={-HEADER_HEIGHT}
+                    smooth
+                    spy
+                    to={id}
+                    duration={duration}
+                  >
                     <Text weight="medium" upper colorType="link">
                       {name}
                     </Text>

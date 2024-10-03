@@ -4,7 +4,7 @@ export const LINK_ID = {
   faq: 'faq',
   contacts: 'contacts',
   franchise: 'franchise',
-};
+} as const;
 
 export const LINKS = [
   {
@@ -30,4 +30,4 @@ export const LINKS = [
     id: LINK_ID.franchise,
     name: 'Франшиза',
   },
-];
+] as const;

@@ -5,3 +5,5 @@ export const APP_URLS = {
 };
 
 export const BRAND_URL = 'https://fullfocusclub.ru';
+
+export const HEADER_HEIGHT = 100;

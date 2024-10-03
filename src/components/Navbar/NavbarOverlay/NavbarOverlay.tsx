@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 import { Text } from 'components';
 import { LINK_ID, LINKS } from 'components/Navbar';
+import { HEADER_HEIGHT } from 'utils';
 
 import css from './navbar-overlay.module.scss';
 
@@ -28,8 +29,8 @@ export const NavbarOverlay = ({ isOpened, onClick }: IProps) => {
           .map(({ id, name }) => (
             <li key={id}>
               <Link
-                // TODO: activeClass?
-                // activeClass={css.active}
+                activeClass={css.active}
+                offset={-HEADER_HEIGHT + 50} // 50 - padding
                 smooth
                 spy
                 to={id}

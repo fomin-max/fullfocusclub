@@ -15,6 +15,12 @@
   transition-duration: 500ms;
 }
 
+.active {
+  & > div {
+    font-weight: bold !important;
+  }
+}
+
 .opened {
   opacity: 1;
   --tw-translate-x: 0px;
