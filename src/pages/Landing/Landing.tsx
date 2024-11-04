@@ -9,32 +9,49 @@ import { Text, LINK_ID } from 'components';
 import { useWindowSize } from 'utils';
 
 import rightSideSrc from './assets/right-side.jpg';
+import { ReactComponent as AirConditioning } from './assets/icons/air-conditioning.svg';
+import { ReactComponent as Devices } from './assets/icons/devices.svg';
+import { ReactComponent as Accounts } from './assets/icons/accounts.svg';
+import { ReactComponent as Food } from './assets/icons/food.svg';
+import { ReactComponent as Gamepad } from './assets/icons/gamepad.svg';
+import { ReactComponent as Hardware } from './assets/icons/hardware.svg';
+import { ReactComponent as Internet } from './assets/icons/internet.svg';
+import { ReactComponent as Chair } from './assets/icons/chair.svg';
+
 import css from './landing.module.scss';
 
 const BENEFITS = [
   {
-    text: 'Новейшее железо и грамотно настроенные ПК',
+    text: 'Новейшее железо и\u00A0грамотно настроенные ПК',
+    icon: <Hardware />,
   },
   {
-    text: 'Флагманская игровая периферия от Logitech, SteelSeries и HyperX',
+    text: 'Флагманская периферия от Logitech, SteelSeries и HyperX',
+    icon: <Devices />,
   },
   {
     text: 'Высокоскоростной интернет от SkyNet',
+    icon: <Internet />,
   },
   {
     text: 'Просторные столы и игровые кресла от WARP и Knight',
+    icon: <Chair />,
   },
   {
     text: 'Системы кондиционирования в каждой зоне',
+    icon: <AirConditioning />,
   },
   {
-    text: 'Клубные аккаунты с огромным количеством игр',
+    text: 'Клубные аккаунты с\u00A0огромным количеством игр',
+    icon: <Accounts />,
   },
   {
-    text: 'Большой ассортимент бара и персональные условия по заказу еды у наших партнеров',
+    text: 'Большой ассортимент бара и доставка еды от наших партнеров',
+    icon: <Food />,
   },
   {
     text: 'Лаунж пространства с PS5',
+    icon: <Gamepad />,
   },
 ];
 
@@ -120,7 +137,16 @@ export const Landing = () => {
               </div>
             </div>
           </div>
-          <div className={css.benefits} />
+          <div className={css.benefits}>
+            {BENEFITS.map(({ icon, text }) => (
+              <div className={css.benefit} key={text}>
+                {icon}
+                <Text format="m" align="center">
+                  {text}
+                </Text>
+              </div>
+            ))}
+          </div>
         </section>
       </Element>
     </div>
