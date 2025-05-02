@@ -28,6 +28,7 @@ module.exports = {
         avoidEscape: true,
       },
     ],
+    'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off', // TODO: need to research
     'no-shadow': 'off', // его обрабатывает '@typescript-eslint/no-shadow'
     'no-unused-vars': 'off', // его обрабатывает @typescript-eslint/no-unused-vars

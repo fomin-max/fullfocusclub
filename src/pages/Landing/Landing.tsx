@@ -7,6 +7,8 @@ import { $mdBreak } from 'assets/styles/adaptive';
 
 import { Text, LINK_ID } from 'components';
 import { useWindowSize } from 'utils';
+import { useMemo } from 'react';
+import { MasonryGallery } from '../../components/MasonryGallery';
 
 import rightSideSrc from './assets/right-side.jpg';
 import { ReactComponent as AirConditioning } from './assets/icons/air-conditioning.svg';
@@ -59,6 +61,11 @@ export const Landing = () => {
   const { width } = useWindowSize();
   const isMobile = width < $mdBreak;
 
+  const sourceVideo = useMemo(
+    () => (isMobile ? mobileSample : sample),
+    [isMobile]
+  );
+
   return (
     <div className={css.root}>
       <section className={css.top}>
@@ -67,16 +74,17 @@ export const Landing = () => {
             className={css.media}
             dangerouslySetInnerHTML={{
               __html: `
-              <video
-                loop
-                muted
-                autoplay
-                playsinline
-                src="${isMobile ? mobileSample : sample}"
-                class="${css.bgVideo}"
-                type="video/mp4"
-              />,
-      `,
+                <video
+                  id='bg-video'
+                  loop='loop'
+                  muted='muted'
+                  autoplay='autoplay'
+                  preload='auto'
+                  class="${css.bgVideo}"
+                >
+                  <source src="${sourceVideo}" type="video/mp4">
+                </video>
+            `,
             }}
           />
           <div className={css.content}>
@@ -147,6 +155,7 @@ export const Landing = () => {
               </div>
             ))}
           </div>
+          <MasonryGallery />
         </section>
       </Element>
     </div>
