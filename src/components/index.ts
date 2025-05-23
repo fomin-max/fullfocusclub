@@ -5,3 +5,5 @@ export { Loader } from './Loader';
 export { Routes } from './Routes';
 export { Button } from './Button';
 export { Text } from './Text';
+export { ClubMapSection } from './ClubMapSection';
+export { MasonryGallery } from './MasonryGallery';

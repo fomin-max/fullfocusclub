@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Element } from 'react-scroll';
 
 import sample from 'assets/video/foreign.mp4';
@@ -5,10 +6,8 @@ import mobileSample from 'assets/video/vertical.mp4';
 import { ReactComponent as PageSeparator } from 'assets/img/page-separator.svg';
 import { $mdBreak } from 'assets/styles/adaptive';
 
-import { Text, LINK_ID } from 'components';
+import { Text, LINK_ID, MasonryGallery, ClubMapSection } from 'components';
 import { useWindowSize } from 'utils';
-import { useMemo } from 'react';
-import { MasonryGallery } from '../../components/MasonryGallery';
 
 import rightSideSrc from './assets/right-side.jpg';
 import { ReactComponent as AirConditioning } from './assets/icons/air-conditioning.svg';
@@ -157,6 +156,9 @@ export const Landing = () => {
           </div>
           <MasonryGallery />
         </section>
+      </Element>
+      <Element name={LINK_ID.esportsClubs}>
+        <ClubMapSection />
       </Element>
     </div>
   );
