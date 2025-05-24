@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
+
+import logoSrc from './assets/logo-circle.png';
+
 import styles from './ClubMapSection.module.scss';
-import { ReactComponent as Logo } from './assets/logo_F_transparency.svg';
 
 export const ClubMapSection = () => {
   useEffect(() => {
@@ -59,8 +61,10 @@ export const ClubMapSection = () => {
               balloonContent: `<div style="font-family:sans-serif"><strong style="color:#6632fa">${club.name}</strong><br>${club.address}<br><span>${club.phone}</span></div>`,
             },
             {
-              preset: 'islands#circleIcon',
-              iconColor: '#6632fa',
+              iconLayout: 'default#image',
+              iconImageHref: logoSrc,
+              iconImageSize: [36, 36],
+              iconImageOffset: [-20, -20],
             }
           );
           map.geoObjects.add(placemark);
@@ -73,7 +77,6 @@ export const ClubMapSection = () => {
   return (
     <section className={styles.mapSection}>
       <div className={styles.header}>
-        <Logo className={styles.logo} />
         <h2 className={styles.heading}>Наши клубы</h2>
       </div>
       <div id="map" className={styles.map} />
