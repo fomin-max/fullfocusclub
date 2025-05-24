@@ -4,10 +4,11 @@
   color: #ffffff;
   background-color: var(--color-dark-bg);
 
-  .heading {
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
-    text-align: center;
+  .header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
   }
 
   .map {
@@ -15,5 +16,14 @@
     height: 500px;
     overflow: hidden;
     border-radius: 12px;
+
+    // Стилизация Leaflet
+    .leaflet-container {
+      border-radius: 12px;
+    }
   }
+}
+
+:global(.leaflet-control-attribution) {
+  display: none !important;
 }

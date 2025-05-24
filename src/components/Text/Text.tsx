@@ -16,7 +16,7 @@ interface IProps extends React.AllHTMLAttributes<HTMLProps> {
   weight?: 'normal' | 'medium' | 'bold';
   decoration?: 'none' | 'underline' | 'line_through';
 
-  format?: 'inherit' | 'custom' | 'xs' | 's' | 'm' | 'l' | 'xl';
+  format?: 'inherit' | 'custom' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 
   colorType?: TTextColorTypes;
 
@@ -30,6 +30,7 @@ interface IProps extends React.AllHTMLAttributes<HTMLProps> {
  * `m` - 22 (mediaMaxSm 18);
  * `l` - 30 (mediaMaxSm 24);
  * `xl` - 40 (mediaMaxSm 30);
+ * `xxl` - 50 (mediaMaxSm 30);
  */
 
 export const Text = ({
