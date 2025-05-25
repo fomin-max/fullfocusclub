@@ -1,8 +1,9 @@
 .mapSection {
   position: relative;
-  padding: 2rem;;
-  color: #ffffff;
-  background-color: var(--color-dark-bg);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: var(--color-dark-bg);;
 
   .header {
     display: flex;
@@ -11,18 +12,116 @@
     margin-bottom: 1rem;
   }
 
-  .map {
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
+  .title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .sidebar {
+    width: 300px;
+    max-height: 600px;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: var(--color-dark-bg);
+    border: 2px solid var(--color-primary);
     border-radius: 12px;
 
-    // Стилизация Leaflet
-    .leaflet-container {
-      border-radius: 12px;
+    @media (max-width: 768px) {
+      width: 100%;
+      max-height: none;
+    }
+
+    .clubList {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .clubItem {
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      background-color: var(--color-dark-bg);
+      border: 1px solid var(--color-primary);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+
+      &:hover {
+        background-color: #2a2a2a;
+        transform: scale(1.02);
+      }
+    }
+
+    .clubName {
+      margin: 0;
+      color: var(--color-primary);
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .clubAddress,
+    .clubPhone {
+      margin: 0;
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+    }
+  }
+
+  .map {
+    flex: 1;
+    height: 500px;
+    overflow: hidden;
+    background: var(--color-dark-bg);
+    border: 2px solid var(--color-primary);
+    border-radius: 12px;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
+
+    @media (max-width: 768px) {
+      height: 400px;
     }
   }
 }
+
+// Стили для pop-up (через глобальный scope)
+:global(.leaflet-popup-content) {
+  color: var(--color-white);
+  font-family: sans-serif;
+
+  strong {
+    color: #6632fa;
+    font-size: 1rem;
+  }
+
+  button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    color: #000000;
+    font-weight: bold;
+    background-color: var(--color-primary);
+    border: 1px solid #000000;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: var(--color-primary);
+      transform: scale(1.05);
+    }
+  }
+}
+
 
 :global(.leaflet-control-attribution) {
   display: none !important;

@@ -8,7 +8,7 @@ import css from './text.module.scss';
 type HTMLProps = HTMLTitleElement | HTMLDivElement | HTMLParagraphElement;
 
 interface IProps extends React.AllHTMLAttributes<HTMLProps> {
-  type?: 'div' | 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'li';
+  tag?: 'div' | 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'li';
   upper?: boolean;
   clickable?: boolean;
   inline?: boolean;
@@ -34,7 +34,7 @@ interface IProps extends React.AllHTMLAttributes<HTMLProps> {
  */
 
 export const Text = ({
-  type = 'div',
+  tag = 'div',
   upper,
   clickable,
   inline,
@@ -63,7 +63,7 @@ export const Text = ({
   );
 
   return React.createElement(
-    type || 'div',
+    tag || 'div',
     { className: classes, ...rest },
     children
   );
