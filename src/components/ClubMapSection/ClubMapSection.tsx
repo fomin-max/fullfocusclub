@@ -1,6 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L, { LatLngExpression, Map as LeafletMap } from 'leaflet';
+import L, {
+  LatLngExpression,
+  Map as LeafletMap,
+  Marker as LeafletMarker,
+} from 'leaflet';
 import { Text } from 'components';
 import styles from './ClubMapSection.module.scss';
 import { ClubPopup } from './ClubPopup';
@@ -49,6 +53,8 @@ const clubs: Club[] = [
 export const ClubMapSection: React.FC = () => {
   const mapRef = useRef<LeafletMap | null>(null);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  // Создаём массив refs для всех маркеров
+  const markerRefs = useRef<(LeafletMarker | null)[]>([]);
 
   const customIcon = L.icon({
     iconUrl: logoSrc,
@@ -57,11 +63,29 @@ export const ClubMapSection: React.FC = () => {
     popupAnchor: [0, -20],
   });
 
-  // При клике на клуб – центрировать карту
   useEffect(() => {
     if (activeIndex !== null && mapRef.current) {
       const club = clubs[activeIndex];
-      mapRef.current.setView(club.coords, 14, { animate: true });
+
+      // Проверяем, массив ли это
+      if (Array.isArray(club.coords)) {
+        // Вместо "магического сдвига" 0.02 лучше использовать panBy:
+        const target = L.latLng(club.coords[0], club.coords[1]);
+        mapRef.current.setView(target, 14, { animate: true });
+
+        // Сдвигаем экран вправо
+        setTimeout(() => {
+          mapRef.current?.panBy([-150, 0], { animate: true }); // смещение в пикселях
+        }, 300); // подождать центрирования
+      } else {
+        mapRef.current.setView(club.coords, 14, { animate: true });
+      }
+
+      // Открываем попап
+      const marker = markerRefs.current[activeIndex];
+      if (marker) {
+        marker.openPopup();
+      }
     }
   }, [activeIndex]);
 
@@ -89,15 +113,27 @@ export const ClubMapSection: React.FC = () => {
           </ul>
         </aside>
         <MapContainer
-          center={[59.939_144, 30.315_635]}
-          zoom={11}
-          style={{ height: '500px', width: '100%', borderRadius: '12px' }}
+          center={[59.939_144, 30.335_635]}
+          zoom={10}
+          zoomControl={false}
           className={styles.map}
           ref={mapRef}
         >
           <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" />
           {clubs.map((club, index) => (
-            <Marker key={index} position={club.coords} icon={customIcon}>
+            <Marker
+              key={index}
+              position={club.coords}
+              icon={customIcon}
+              ref={(ref) => {
+                markerRefs.current[index] = ref;
+              }}
+              eventHandlers={{
+                click: () => {
+                  setActiveIndex(index);
+                },
+              }}
+            >
               <Popup>
                 <ClubPopup
                   name={club.name}

@@ -2,99 +2,110 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
-  background-color: var(--color-dark-bg);;
+  max-height: 700px;
+  padding: 0 40px;
+  padding-bottom: 500px;
+  overflow: hidden;
+  color: var(--color-white);
+  background-color: var(--color-dark-bg);
 
   .header {
     display: flex;
     gap: 1rem;
     align-items: center;
-    margin-bottom: 1rem;
+    padding: 1rem;
   }
 
   .title {
+    color: var(--color-white);
     font-size: 2rem;
-    text-align: center;
   }
 
   .container {
+    position: relative;
     display: flex;
-    flex-direction: row;
-    gap: 1rem;
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
 
     @media (max-width: 768px) {
       flex-direction: column;
+      aspect-ratio: auto; // на мобилках убираем, чтобы не ломало
     }
-  }
 
-  .sidebar {
-    width: 300px;
-    max-height: 600px;
-    padding: 1rem;
-    overflow-y: auto;
-    background-color: var(--color-dark-bg);
-    border: 2px solid var(--color-primary);
-    border-radius: 12px;
-
-    @media (max-width: 768px) {
+    .map {
+      z-index: 1;
+      flex: 1 1 auto; // Карта занимает оставшееся пространство
       width: 100%;
-      max-height: none;
+      height: 100%;
+      min-height: 0;  // Важно для корректного сжатия
+      background: var(--color-dark-bg);
+      border: none;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      will-change: transform;
     }
 
-    .clubList {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
+    .sidebar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      flex: 0 0 auto; // Sidebar сохраняет свою ширину
+      width: 300px;
+      padding: 1rem;
+      overflow-y: auto;
 
-    .clubItem {
-      margin-bottom: 1rem;
-      padding: 0.75rem;
-      background-color: var(--color-dark-bg);
-      border: 1px solid var(--color-primary);
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s;
-
-      &:hover {
-        background-color: #2a2a2a;
-        transform: scale(1.02);
+      @media (max-width: 768px) {
+        top: auto;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        border-top: 2px solid var(--color-primary);
+        border-right: none;
       }
-    }
 
-    .clubName {
-      margin: 0;
-      color: var(--color-primary);
-      font-weight: bold;
-      font-size: 1rem;
-    }
+      .clubList {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
 
-    .clubAddress,
-    .clubPhone {
-      margin: 0;
-      color: var(--color-text-secondary);
-      font-size: 0.9rem;
-    }
-  }
+      .clubItem {
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        background-color: var(--color-dark-bg);
+        border: 1px solid var(--color-primary);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
 
-  .map {
-    flex: 1;
-    height: 500px;
-    overflow: hidden;
-    background: var(--color-dark-bg);
-    border: 2px solid var(--color-primary);
-    border-radius: 12px;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    will-change: transform;
+        &:hover {
+          background-color: #2a2a2a;
+          transform: scale(1.02);
+        }
+      }
 
-    @media (max-width: 768px) {
-      height: 400px;
+      .clubName {
+        margin: 0;
+        color: var(--color-primary);
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
+      .clubAddress,
+      .clubPhone {
+        margin: 0;
+        color: var(--color-text-secondary);
+        font-size: 0.9rem;
+      }
     }
   }
 }
 
-// Стили для pop-up (через глобальный scope)
+// Стили для pop-up (глобальный scope)
 :global(.leaflet-popup-content) {
   color: var(--color-white);
   font-family: sans-serif;
@@ -122,7 +133,10 @@
   }
 }
 
-
 :global(.leaflet-control-attribution) {
   display: none !important;
+}
+
+:global(.leaflet-popup) {
+  z-index: 2000 !important;
 }
