@@ -20,7 +20,7 @@
   }
   // END FAMILY
 
-  // START FORMATS
+  // START SIZES
   &.format-inherit {
     font-size: inherit;
     line-height: inherit;
@@ -35,6 +35,11 @@
 
   &.format-s {
     font-size: 16px;
+
+    @include mediaMaxLg {
+      font-size: 14px;
+      line-height: 22px;
+    }
   }
 
   &.format-m {
@@ -106,9 +111,13 @@
     font-size: 50px;
     line-height: 46px;
   }
-  // END FORMATS
+  // END SIZES
 
   // START WEIGHTS
+  &.weight-thin {
+    font-weight: 300;
+  }
+
   &.weight-normal {
     font-weight: 400;
   }
@@ -158,6 +167,10 @@
 
   &.colorType-success {
     color: var(--color-success);
+  }
+
+  &.colorType-secondary {
+    color: var(--color-secondary);
   }
 
   &.colorType-danger {

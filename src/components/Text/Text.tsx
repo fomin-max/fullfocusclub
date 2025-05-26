@@ -13,7 +13,7 @@ interface IProps extends React.AllHTMLAttributes<HTMLProps> {
   clickable?: boolean;
   inline?: boolean;
   align?: 'left' | 'center' | 'right' | 'inherit';
-  weight?: 'normal' | 'medium' | 'bold';
+  weight?: 'thin' | 'normal' | 'medium' | 'bold';
   decoration?: 'none' | 'underline' | 'line_through';
 
   format?: 'inherit' | 'custom' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';

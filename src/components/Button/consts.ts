@@ -1,5 +1,5 @@
 export const BUTTON_VARIANT = {
   primary: 'primary',
   offer: 'offer',
-  // secondary: 'secondary',
+  secondary: 'secondary',
 } as const;

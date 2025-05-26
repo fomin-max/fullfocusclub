@@ -11,7 +11,7 @@
   --color-link-active: #9a9bfe;
   --color-danger: #ef3d52;
   --color-success: #3bb54a;
-  --color-secondary: var(--color-indigo);
+  --color-secondary: #16C504;
 
   // FONTS
   // (только латиница, пишем им наше название, главные заголовки)
@@ -37,7 +37,7 @@
   );
 
   // Z-INDEXES
-  --z-header: 2;
+  --z-header: 3;
   --z-navbar-overlay: 1;
   --z-background: -1;
 }

@@ -1,26 +1,9 @@
 .popupContent {
-  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-  .name {
-    color: var(--color-primary);
-    font-weight: bold;
-    font-size: 1rem;
-  }
-
-  button.reserveBtn {
-    margin-top: 5px;
-    padding: 5px 10px;
-    color: var(--color-white);
-    font-weight: bold;
-    background-color: var(--color-primary);
-    border: 1px solid #000000;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s;
-
-    &:hover {
-      background-color: var(--color-primary);
-      transform: scale(1.05);
-    }
-  }
+:global(.leaflet-popup-content-wrapper), :global(.leaflet-popup-tip) {
+  background: var(--color-dark-bg);
 }

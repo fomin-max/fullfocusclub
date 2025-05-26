@@ -1,6 +1,7 @@
 .button {
-  padding: 1rem 1.2rem 1rem 1.6rem;
+  padding: 10px 20px;
   border: none;
+  border-radius: 12px;
   cursor: pointer;
 }
 
@@ -18,10 +19,15 @@
 .primary {
   background: var(--color-primary);
   transition: transform 0.3s;
+}
+
+.secondary {
+  @extend .primary;
+  @extend .notch;
+  background: var(--color-secondary);
 
   &:hover {
-    color: var(--color-white);
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 }
 
@@ -45,6 +51,12 @@ $anim-speed: 0.85; // in seconds
   @extend .notch;
   @extend .primary;
   position: relative;
+  padding: 1rem 1.2rem 1rem 1.6rem;
+
+  &:hover {
+    color: var(--color-white);
+    transform: scale(1.1);
+  }
 
   &::before {
     position: absolute;

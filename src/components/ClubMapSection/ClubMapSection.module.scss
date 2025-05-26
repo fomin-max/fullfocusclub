@@ -2,10 +2,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  max-height: 700px;
-  padding: 0 40px;
-  padding-bottom: 500px;
-  overflow: hidden;
+  max-height: 750px;
+  padding: 0 40px 40px 40px;
   color: var(--color-white);
   background-color: var(--color-dark-bg);
 
@@ -13,12 +11,7 @@
     display: flex;
     gap: 1rem;
     align-items: center;
-    padding: 1rem;
-  }
-
-  .title {
-    color: var(--color-white);
-    font-size: 2rem;
+    padding-bottom: 32px;
   }
 
   .container {
@@ -32,6 +25,7 @@
 
     @media (max-width: 768px) {
       flex-direction: column;
+      min-height: 50vh; // даём фиксированную минимальную высоту
       aspect-ratio: auto; // на мобилках убираем, чтобы не ломало
     }
 
@@ -46,25 +40,28 @@
       transform: translateZ(0);
       backface-visibility: hidden;
       will-change: transform;
+
+      @media (max-width: 1040px) {
+        min-height: 70vh; // даём фиксированную минимальную высоту
+      }
+
+      @media (max-width: 768px) {
+        min-height: 60vh; // даём фиксированную минимальную высоту
+      }
     }
 
     .sidebar {
       position: absolute;
       top: 0;
       left: 0;
-      z-index: 999;
+      z-index: calc(var(--z-header) - 1);
       flex: 0 0 auto; // Sidebar сохраняет свою ширину
       width: 300px;
+      max-height: 100%;
       padding: 1rem;
-      overflow-y: auto;
 
       @media (max-width: 768px) {
-        top: auto;
-        bottom: 0;
-        width: 100%;
-        height: auto;
-        border-top: 2px solid var(--color-primary);
-        border-right: none;
+        display: none;
       }
 
       .clubList {
@@ -77,58 +74,19 @@
         margin-bottom: 1rem;
         padding: 0.75rem;
         background-color: var(--color-dark-bg);
-        border: 1px solid var(--color-primary);
         border-radius: 8px;
         cursor: pointer;
-        transition: background-color 0.3s, transform 0.2s;
+        transition: background-color 0.3s ease;
 
         &:hover {
-          background-color: #2a2a2a;
-          transform: scale(1.02);
+          background-color: rgba(255, 255, 255, 0.1); // мягкий тёмный фон
+        }
+
+        @media (max-width: 868px) {
+          margin-bottom: 0.8rem;
+          padding: 0.4rem;
         }
       }
-
-      .clubName {
-        margin: 0;
-        color: var(--color-primary);
-        font-weight: bold;
-        font-size: 1rem;
-      }
-
-      .clubAddress,
-      .clubPhone {
-        margin: 0;
-        color: var(--color-text-secondary);
-        font-size: 0.9rem;
-      }
-    }
-  }
-}
-
-// Стили для pop-up (глобальный scope)
-:global(.leaflet-popup-content) {
-  color: var(--color-white);
-  font-family: sans-serif;
-
-  strong {
-    color: #6632fa;
-    font-size: 1rem;
-  }
-
-  button {
-    margin-top: 5px;
-    padding: 5px 10px;
-    color: #000000;
-    font-weight: bold;
-    background-color: var(--color-primary);
-    border: 1px solid #000000;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s;
-
-    &:hover {
-      background-color: var(--color-primary);
-      transform: scale(1.05);
     }
   }
 }
