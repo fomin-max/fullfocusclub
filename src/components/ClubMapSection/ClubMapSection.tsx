@@ -49,7 +49,7 @@ const clubs: Club[] = [
   },
   {
     name: 'Full Focus Беговая',
-    address: 'ул. Савушкина, 126',
+    address: 'ул. Савушкина, 127',
     phone: '+7 (812) 660-55-96',
     coords: [59.987_217, 30.218_922],
     // reserveLink:
