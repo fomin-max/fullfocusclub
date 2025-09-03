@@ -46,15 +46,17 @@ export const ROUTES: Route[] = [
       description: 'NotFound Page',
     },
   },
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   Component: About,
-  //   metaInfo: {
-  //     title: 'About',
-  //     description: `About ${DESC_SUFFIX}`
-  //   }
-  // }
+  {
+    path: '/redirect',
+    name: 'Redirect',
+    Component: lazy(
+      () => import(/* webpackChunkName: "RedirectPage" */ 'pages/RedirectPage')
+    ),
+    metaInfo: {
+      title: 'Redirect',
+      description: 'Redirect Page',
+    },
+  },
 ];
 
 export const getRouteMetaInfo = (name: string): MetaInfoProps => {
