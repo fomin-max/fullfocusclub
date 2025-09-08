@@ -13,6 +13,14 @@ export const RedirectPage: React.FC = () => {
   const redirect = decodeURIComponent(params.get('redirect') || '');
 
   useEffect(() => {
+    // логируем для проверки
+    console.log('[RedirectPage] reachGoal redirect', {
+      utm_content,
+      utm_campaign,
+      utm_medium,
+      redirect,
+    });
+
     if (window.ym && typeof window.ym === 'function') {
       window.ym(METRIKA_ID, 'reachGoal', 'redirect', {
         utm_content,
@@ -20,12 +28,14 @@ export const RedirectPage: React.FC = () => {
         utm_medium,
         redirect,
       });
+    } else {
+      console.warn('[RedirectPage] window.ym не найден');
     }
 
     if (redirect.startsWith('http')) {
       setTimeout(() => {
         window.location.href = redirect;
-      }, 800);
+      }, 1000);
     }
   }, [utm_content, utm_campaign, utm_medium, redirect]);
 
