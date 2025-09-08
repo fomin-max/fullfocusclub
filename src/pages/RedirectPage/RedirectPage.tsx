@@ -35,7 +35,7 @@ export const RedirectPage: React.FC = () => {
     if (redirect.startsWith('http')) {
       setTimeout(() => {
         window.location.href = redirect;
-      }, 1000);
+      }, 1_000);
     }
   }, [utm_content, utm_campaign, utm_medium, redirect]);
 
