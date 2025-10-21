@@ -43,6 +43,18 @@ ul {
   border-radius: 10px;
 }
 
+@media print {
+  html, body {
+    background: #fff !important;
+  }
+
+  /* чтобы контент не закладывался под исчезнувший хедер —
+     убираем любые верхние внешние отступы, если они были “под хедер” */
+  main, article {
+    margin-top: 0 !important;
+  }
+}
+
 @font-face {
   font-family: 'Audiowide';
   src: local('Audiowide'),
@@ -57,4 +69,53 @@ ul {
 @font-face {
   font-family: 'Montserrat';
   src: local('Montserrat'), url('fonts/Montserrat.ttf') format('truetype');
+}
+
+/* === Orbitron — локальное подключение (woff2) === */
+@font-face {
+  font-family: 'Orbitron';
+  src: url('./fonts/orbitron/Orbitron-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('./fonts/orbitron/Orbitron-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('./fonts/orbitron/Orbitron-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('./fonts/orbitron/Orbitron-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('./fonts/orbitron/Orbitron-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('./fonts/orbitron/Orbitron-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }

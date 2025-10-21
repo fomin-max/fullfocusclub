@@ -1,0 +1,124 @@
+/* ============ Layout ============ */
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+}
+
+.content {
+  /* тело документа — наследует стили твоего DocumentLayout .body */
+}
+
+/* якоря не уезжают под фикс-хедер */
+:where(h2, li[id], p[id]) {
+  scroll-margin-top: 80px; /* подстрой под высоту хедера */
+}
+
+/* ============ TOC ============ */
+.toc {
+  position: sticky;
+  top: 16px;
+  align-self: start;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #2b2f36;
+  border-radius: 12px;
+  padding: 14px 12px;
+  font: 500 14px/1.5 Manrope, sans-serif;
+}
+
+.tocTitle {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.toc ul li::before {
+  content: none !important; /* глушим глобальные псевдо-маркеры */
+}
+
+.tocH2 {
+  margin: 10px 0 4px;
+  font-weight: 700;
+}
+
+.tocSub {
+  margin-top: 4px;
+  margin-left: 12px;
+  list-style: none;
+  padding: 0;
+}
+
+.tocPoint {
+  margin: 2px 0 2px 12px;
+  color: #9ca3af;
+}
+
+/* ссылка + номер в одну линию */
+.toc a {
+  display: inline-flex;
+  gap: 8px;
+  align-items: baseline;
+  color: var(--color-white);
+  text-decoration: none;
+  max-width: 100%;
+}
+.toc a:hover {
+  text-decoration: underline;
+}
+
+/* номер подпункта */
+.tocNum {
+  font-weight: 700;
+  min-width: 3ch; /* выравнивает 1.1 vs 10.2 */
+}
+
+/* подпись после номера */
+.tocLabel {
+  max-width: 180px; /* подгони под макет */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #9ca3af;
+}
+
+/* ============ Нумерация списков в контенте ============ */
+/* Иерархическая нумерация только для <ol>, <ul> не трогаем */
+.content :where(ol) {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: item;
+}
+.content :where(ol) > li {
+  display: block;
+  counter-increment: item;
+  margin-left: 1.5rem; /* отступ под номер */
+}
+.content :where(ol) > li::before {
+  content: counters(item, '.') '. ';
+  display: inline-block;
+  width: 1.5rem;
+  margin-left: -1.5rem;
+}
+.content :where(ol ol) {
+  counter-reset: item; /* новый уровень счётчика */
+}
+
+/* ============ Адаптив/печать ============ */
+@media (max-width: 920px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .toc {
+    position: relative;
+  }
+}
+
+@media print {
+  .toc {
+    display: none;
+  }
+}

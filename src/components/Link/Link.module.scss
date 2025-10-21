@@ -1,0 +1,9 @@
+.root {
+  color: var(--color-white-500);
+  text-decoration: none;
+
+  &:hover {
+    transition: color 0.3s;
+    color: var(--color-white-100);
+  }
+}

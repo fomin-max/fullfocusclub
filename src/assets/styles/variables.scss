@@ -2,7 +2,7 @@
   // COLORS
   --color-white: #ffffff;
   --color-black: #000000;
-  --color-dark-bg: #000000;
+  --color-dark-bg: #0A0A0A;
   --color-grey: #9f9fa4;
   --color-primary: #6632fa;
   --color-text: var(--color-white);
@@ -13,6 +13,14 @@
   --color-success: #3bb54a;
   --color-secondary: #16C504;
 
+  --color-white-0: rgba(255, 255, 255, 0.03);
+  --color-white-50: rgba(255, 255, 255, 0.1);
+  --color-white-100: rgba(255, 255, 255, 0.25);
+  --color-white-200: rgba(255, 255, 255, 0.4);
+  --color-white-300: rgba(255, 255, 255, 0.6);
+  --color-white-400: rgba(255, 255, 255, 0.8);
+  --color-white-500: rgba(255, 255, 255, 1);
+
   // FONTS
   // (только латиница, пишем им наше название, главные заголовки)
   --font-family-latin: 'Audiowide', sans-serif;
@@ -20,6 +28,8 @@
   --font-family-cyrillic: 'MagistralC', sans-serif;
   // Шрифт для длинных текстов
   --font-family-base: 'Montserrat', sans-serif;
+
+  --font-family-orbitron: 'Orbitron', 'Manrope', sans-serif;
 
   // WIDTH AND HEIGHT
   --scrollbar-width: 12px;

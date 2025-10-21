@@ -37,6 +37,7 @@ module.exports = {
     'consistent-return': 'off',
     'no-console': 'off',
     'no-irregular-whitespace': 'off',
+    'no-plusplus': 'off',
     'no-underscore-dangle': 'off',
     'default-case': 'off',
     'class-methods-use-this': 'off',
@@ -62,6 +63,7 @@ module.exports = {
     'jsx-a11y/mouse-events-have-key-events': 'off',
     'jsx-a11y/media-has-caption': 'off',
     'jsx-a11y/control-has-associated-label': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
 
     'react/jsx-key': 2,
     'react/jsx-handler-names': 2,

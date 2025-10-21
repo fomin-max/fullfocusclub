@@ -8,12 +8,18 @@
   width: 100%;
   height: var(--header-height);
   min-height: var(--header-height);
-  transition: backdrop-filter 0.4s ease 0.4s;
+  transition: backdrop-filter 0.4s ease 0.4s, transform 0.25s ease; /* 👈 анимация */
+  will-change: transform;
 }
 
 .headerWithBg {
   backdrop-filter: blur(12px) brightness(0.5);
   transition-delay: 0.1s;
+}
+
+/* 👇 прячем вверх */
+.headerHidden {
+  transform: translateY(calc(-1 * var(--header-height)));
 }
 
 .container {
@@ -25,6 +31,10 @@
   height: 100%;
   margin: 0 auto;
   padding: 0 40px;
+
+  & > a {
+    height: 40px;
+  }
 }
 
 .logo {

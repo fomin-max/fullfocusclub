@@ -47,7 +47,7 @@ export const ROUTES: Route[] = [
     },
   },
   {
-    path: '/redirect',
+    path: APP_URLS.Redirect,
     name: 'Redirect',
     Component: lazy(
       () => import(/* webpackChunkName: "RedirectPage" */ 'pages/RedirectPage')
@@ -57,6 +57,42 @@ export const ROUTES: Route[] = [
       description: 'Redirect Page',
     },
   },
+  {
+    path: APP_URLS.PersonalDataProcessingPolicy,
+    name: 'PersonalDataProcessingPolicy',
+    Component: lazy(
+      () =>
+        import(
+          /* webpackChunkName: "PersonalDataProcessingPolicy" */ 'pages/PersonalDataProcessingPolicy'
+        )
+    ),
+    metaInfo: {
+      title: 'PersonalDataProcessingPolicy',
+      description: 'PersonalDataProcessingPolicy Page',
+    },
+  },
+  // {
+  //   path: APP_URLS.PersonalDataProcessingConsent,
+  //   name: 'PersonalDataProcessingConsent',
+  //   Component: lazy(
+  //     () => import(/* webpackChunkName: "PersonalDataProcessingConsent" */ 'pages/PersonalDataProcessingConsent')
+  //   ),
+  //   metaInfo: {
+  //     title: 'PersonalDataProcessingConsent',
+  //     description: 'PersonalDataProcessingConsent Page',
+  //   },
+  // },
+  // {
+  //   path: APP_URLS.UserAgreement,
+  //   name: 'UserAgreement',
+  //   Component: lazy(
+  //     () => import(/* webpackChunkName: "UserAgreement" */ 'pages/UserAgreement')
+  //   ),
+  //   metaInfo: {
+  //     title: 'UserAgreement',
+  //     description: 'UserAgreement Page',
+  //   },
+  // },
 ];
 
 export const getRouteMetaInfo = (name: string): MetaInfoProps => {

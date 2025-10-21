@@ -1,3 +1,5 @@
+import { TByObjectValues } from 'utils/types';
+
 export const LINK_ID = {
   about: 'about',
   esportsClubs: 'esports-clubs',
@@ -5,6 +7,8 @@ export const LINK_ID = {
   contacts: 'contacts',
   franchise: 'franchise',
 } as const;
+
+export type TLinkIds = TByObjectValues<typeof LINK_ID>;
 
 export const LINKS = [
   {

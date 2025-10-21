@@ -18,7 +18,7 @@ interface IProps extends React.AllHTMLAttributes<HTMLProps> {
 
   format?: 'inherit' | 'custom' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 
-  colorType?: TTextColorTypes;
+  colorType?: TTextColorTypes | string;
 
   family?: 'cyrillic' | 'latin' | 'base';
 }

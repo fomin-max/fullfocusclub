@@ -52,8 +52,7 @@ const clubs: Club[] = [
     address: 'ул. Савушкина, 127',
     phone: '+7 (812) 660-55-96',
     coords: [59.987_217, 30.218_922],
-    // reserveLink:
-    //   'https://vk.com/im?entrypoint=community_page&media=&sel=-230576404',
+    reserveLink: 'https://t.me/FullFocusBegovaya',
   },
 ];
 
