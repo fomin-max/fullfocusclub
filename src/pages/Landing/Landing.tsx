@@ -78,6 +78,8 @@ export const Landing = () => {
                   loop='loop'
                   muted='muted'
                   autoplay='autoplay'
+                  playsinline='playsinline'
+                  webkit-playsinline='webkit-playsinline'
                   preload='auto'
                   class="${css.bgVideo}"
                 >
