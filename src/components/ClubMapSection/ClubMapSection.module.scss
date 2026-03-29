@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  max-height: 750px;
   padding: 0 40px 40px 40px;
   color: var(--color-white);
   background-color: var(--color-dark-bg);
@@ -42,11 +41,11 @@
       will-change: transform;
 
       @media (max-width: 1040px) {
-        min-height: 70vh; // даём фиксированную минимальную высоту
+        // min-height: 500px;
       }
 
       @media (max-width: 768px) {
-        min-height: 60vh; // даём фиксированную минимальную высоту
+        min-height: 60vh;
       }
     }
 
